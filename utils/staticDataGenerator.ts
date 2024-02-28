@@ -12,12 +12,19 @@ export function generateRandomEmailAddress(length: number): string {
 
 export function generateRandomPassword(length: number): string {
   const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const uppercase = lowercase.toUpperCase();
   const numbers = '0123456789';
   const specials = '!@#$%^&*()-_=+[{]};:<>|./?';
-  const randomChar = (chars: string) => chars.charAt(Math.floor(Math.random() * chars.length));
-  const allChars = lowercase + uppercase + numbers + specials;
-  return [randomChar(lowercase), randomChar(uppercase), randomChar(specials), ...Array.from({ length: length - 3 }, () => randomChar(allChars))]
+  const randomChar = (characters: string) => characters.charAt(Math.floor(Math.random() * characters.length));
+  const allcharacters = lowercase + uppercase + numbers + specials;
+  const result = [
+    randomChar(lowercase),
+    randomChar(uppercase),
+    randomChar(numbers),
+    randomChar(specials),
+    ...Array.from({ length: length - 4 }, () => randomChar(allcharacters))
+  ]
     .sort(() => Math.random() - 0.5)
     .join('');
+  return result;
 }
