@@ -1,0 +1,34 @@
+{
+  "name": "chris-playwright-demo",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=10.6.0"
+  },
+  "description": "Playwright demo by Chris Atkinson",
+  "main": "index.js",
+  "scripts": {
+    "pretty": "npx prettier . --write",
+    "lint": "eslint .",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:head": "npx playwright test --headed",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "Christopher Atkinson",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.21",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^1.4.2",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "3.2.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
