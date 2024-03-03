@@ -17,16 +17,10 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "playwright/no-standalone-expect": "false",
+    "playwright/no-standalone-expect": 0,
     "prettier/prettier": ["error"],
-    "indent": ["error", 2],
-    "semi": ["error", "always"],
-    "quotes": ["error", "single"],
     "prefer-const": "error",
     "arrow-parens": ["error", "always"],
-    "no-unused-vars": "warn",
-    "no-console": "warn",
-    "no-alert": "warn",
     "no-unreachable": "error",
     "strict": ["error", "global"]
   }

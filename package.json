@@ -6,17 +6,18 @@
   },
   "description": "Playwright demo by Chris Atkinson",
   "scripts": {
-    "pretty": "npx prettier . --write",
+    "postinstall": "npx playwright install",
     "lint": "eslint .",
+    "pretty": "npx prettier . --write",
     "test": "npx playwright test",
     "test:head": "npx playwright test --headed",
-    "test:ui": "npx playwright test --ui",
     "test:smoke": "npx playwright test --grep smoke",
+    "test:ui": "npx playwright test --ui",
     "report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "Christopher Atkinson",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.21",

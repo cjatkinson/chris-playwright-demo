@@ -4,11 +4,13 @@
 
 This is a Playwright demo implementation by [Chris Atkinson](mailto:cjatkinson19@gmail.com).
 
-The framework implements the page object pattern. The included spec demonstrates a pattern whereby a spec is optimized to run in serial mode. The spec evaluates four criteria:
+The framework implements a [page object pattern](https://playwright.dev/docs/pom) for easy test authoring and maintenance. The UI tests are designed to evaluate four criteria of pages.
 * Are all of the interactive elements present on the page?
 * Can the page successfully render a front-end error?
 * Can the page successfully render a back-end error?
 * Can the primary functionality of the page be achieved?
+
+The project is integrated with [CircleCI](https://circleci.com/) for continuous integration.
 
 ## Installation
 
@@ -60,4 +62,3 @@ npm run test:smoke
 
 ## TODO
 * Implement API test suite.
-* Implement CircleCI.

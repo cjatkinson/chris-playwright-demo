@@ -1,8 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-
-// Read environment variables from file
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('dotenv').config();
+import 'dotenv/config';
 
 // See https://playwright.dev/docs/test-configuration
 export default defineConfig({
@@ -11,24 +8,40 @@ export default defineConfig({
   // Run tests in files in parallel
   fullyParallel: true,
 
-  // Fail the build on CI if you accidentally left test.only in the source code
-  forbidOnly: !!process.env.CI,
+  // Fail the build on CIRCLECI if you accidentally left test.only in the source code
+  forbidOnly: !!process.env.CIRCLECI,
 
   // Retry on CI only
-  retries: process.env.CI ? Number(process.env.RETRIES) : 0,
+  retries: process.env.CIRCLECI ? Number(process.env.RETRIES) : 0,
 
   // Opt out of parallel tests on CI
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CIRCLECI ? 1 : 2,
 
   // Reporter to use. See https://playwright.dev/docs/test-reporters
-  reporter: 'html',
+  reporter: process.env.CIRCLECI
+    ? [
+        [
+          'junit',
+          {
+            outputFile: 'results.xml'
+          }
+        ]
+      ]
+    : [
+        [
+          'html',
+          {
+            open: 'on-failure'
+          }
+        ]
+      ],
 
   // Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions
   use: {
     // Base URL to use in actions like `await page.goto('/')`
     baseURL: process.env.BASE_URL,
 
-    // Capture screenshot after each test failure.
+    // Capture screenshot after each test failure.jhnuj
     screenshot: 'only-on-failure',
 
     // Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer
@@ -45,7 +58,7 @@ export default defineConfig({
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] }
-    },
+    }
 
     // {
     //   name: 'webkit',

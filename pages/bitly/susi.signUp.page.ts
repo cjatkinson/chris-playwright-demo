@@ -19,9 +19,7 @@ export class SusiSignUp {
 
   public passwordInputOneLetterFeErr: Locator = this.page.locator('xpath=//span[text()="One letter"]');
 
-  public passwordInputOneNumberFeErr: Locator = this.page.locator('xpath=//span[text()="One letter"]');
-
-  public passwordInputOneSpecCharFeErr: Locator = this.page.locator('xpath=//span[text()="One letter"]');
+  public passwordInputOneSpecCharFeErr: Locator = this.page.locator('xpath=//span[text()="One special character"]');
 
   public passwordInputNineOrMoreCharFeErr: Locator = this.page.locator('xpath=//span[text()="9 or more characters"]');
 
